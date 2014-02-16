@@ -6,7 +6,7 @@ Copyright (C) 2013 Christopher Phillips and Kevin Schmidt, 978-1449363628
 
 The code is hosted at [https://github.com/OReillyProgrammingElasticMapReduce/programemr-book](https://github.com/OReillyProgrammingElasticMapReduce/programemr-book)
 
-### Chapter names for "Programming Elastic MapReduce: Using AWS services to build an end-to-end application", First Edition
+##### Chapter names for "Programming Elastic MapReduce: Using AWS services to build an end-to-end application", First Edition
 
 * ch01 - Introduction to Amazon Elastic MapReduce
 * ch02 - Data Collection and Data Analysis with AWS
