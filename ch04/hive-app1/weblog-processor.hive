@@ -1,0 +1,20 @@
+add jar /home/hadoop/hive/lib/hive_contrib.jar;
+
+CREATE TABLE weblog_data(
+  host STRING,
+  identity STRING,
+  user STRING,
+  time STRING,
+  request STRING,
+  status STRING,
+  size STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.contrib.serde2.RegexSerDe'
+WITH SERDEPROPERTIES (
+  "input.regex" = "^(\\S+) (\\S+) (\\S+) \\[([\\w:/]+
+        \\s[+\\-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\S+)",
+  "output.format.string" = "%1$s %2$s %3$s %4$s %5$s %6$s %7$s"
+)
+LOCATION '${INPUT}';
+
+INSERT OVERWRITE DIRECTORY '${OUTPUT}' select request,
+    count(*) from weblog_data where status>=300 group by request;
